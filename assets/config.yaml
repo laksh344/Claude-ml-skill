@@ -1,0 +1,46 @@
+# kaggle-ml Skill Configuration
+# Autonomous ML Competition System — Kaggle Grandmaster Mode
+
+skill:
+  name: kaggle-ml
+  version: "2.0.0"
+  category: machine-learning
+
+settings:
+  enabled: true
+  log_level: info
+
+  validation:
+    strict_mode: true
+    auto_fix: false
+
+  output:
+    format: markdown
+    include_examples: true
+    structured_response: true   # always output 9-point breakdown
+
+  competition:
+    default_cv_folds: 5
+    default_random_state: 42
+    min_cot_ratio: 0.75          # ≥75% CoT examples for LLM fine-tuning
+    aimo_answer_range: [0, 99999]
+    nemotron_token_limit: 7680
+    nemotron_temperature: 0.0
+
+environments:
+  development:
+    log_level: debug
+    validation:
+      strict_mode: false
+
+  production:
+    log_level: warn
+    validation:
+      strict_mode: true
+
+integrations:
+  git: true
+  linter: true
+  wandb: true       # experiment tracking
+  optuna: true      # hyperparameter search
+  gradio: true      # demo deployment

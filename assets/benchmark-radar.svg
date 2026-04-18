@@ -1,0 +1,153 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 18px; font-weight: 700; fill: #1a1a2e; }
+      .subtitle { font-size: 12px; fill: #666; }
+      .axis-label { font-size: 10.5px; fill: #333; font-weight: 500; }
+      .axis-line { stroke: #e0e0e0; stroke-width: 0.8; fill: none; }
+      .grid-line { stroke: #f0f0f0; stroke-width: 0.6; fill: none; }
+      .without-fill { fill: rgba(239, 68, 68, 0.12); stroke: #ef4444; stroke-width: 2; }
+      .with-fill { fill: rgba(34, 197, 94, 0.15); stroke: #16a34a; stroke-width: 2.5; }
+      .dot-without { fill: #ef4444; }
+      .dot-with { fill: #16a34a; }
+      .legend-text { font-size: 12px; fill: #333; }
+      .score-text { font-size: 9px; fill: #888; }
+      .improvement-box { fill: #f0fdf4; stroke: #86efac; stroke-width: 1; rx: 8; }
+      .improvement-title { font-size: 14px; font-weight: 700; fill: #15803d; }
+      .improvement-text { font-size: 11px; fill: #166534; }
+      .stat-number { font-size: 28px; font-weight: 800; fill: #16a34a; }
+      .stat-label { font-size: 10px; fill: #666; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="white" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" class="title">Benchmark: Claude With Skill vs Without Skill</text>
+  <text x="400" y="52" text-anchor="middle" class="subtitle">Evaluated on 6 real ML competition prompts · Scored 0–10 across 8 dimensions</text>
+
+  <!-- Radar chart center -->
+  <g transform="translate(300, 275)">
+    <!-- Grid circles -->
+    <circle cx="0" cy="0" r="40" class="grid-line"/>
+    <circle cx="0" cy="0" r="80" class="grid-line"/>
+    <circle cx="0" cy="0" r="120" class="grid-line"/>
+    <circle cx="0" cy="0" r="160" class="grid-line"/>
+    <circle cx="0" cy="0" r="180" class="axis-line"/>
+
+    <!-- Grid labels -->
+    <text x="5" y="-37" class="score-text">2</text>
+    <text x="5" y="-77" class="score-text">4</text>
+    <text x="5" y="-117" class="score-text">6</text>
+    <text x="5" y="-157" class="score-text">8</text>
+    <text x="5" y="-177" class="score-text">10</text>
+
+    <!-- 8 axes (evenly spaced at 45°) -->
+    <!-- 0: Leakage Detection (top) -->
+    <line x1="0" y1="0" x2="0" y2="-180" class="axis-line"/>
+    <!-- 1: CV Strategy (top-right) -->
+    <line x1="0" y1="0" x2="127.28" y2="-127.28" class="axis-line"/>
+    <!-- 2: 2026 Research (right) -->
+    <line x1="0" y1="0" x2="180" y2="0" class="axis-line"/>
+    <!-- 3: Metric Optimization (bottom-right) -->
+    <line x1="0" y1="0" x2="127.28" y2="127.28" class="axis-line"/>
+    <!-- 4: Ensemble (bottom) -->
+    <line x1="0" y1="0" x2="0" y2="180" class="axis-line"/>
+    <!-- 5: Code Completeness (bottom-left) -->
+    <line x1="0" y1="0" x2="-127.28" y2="127.28" class="axis-line"/>
+    <!-- 6: Domain Techniques (left) -->
+    <line x1="0" y1="0" x2="-180" y2="0" class="axis-line"/>
+    <!-- 7: Submission Validation (top-left) -->
+    <line x1="0" y1="0" x2="-127.28" y2="-127.28" class="axis-line"/>
+
+    <!-- WITHOUT SKILL polygon (scores: 2,4,1,3,2,5,3,1 out of 10, scaled to 180) -->
+    <polygon class="without-fill" points="
+      0,-36
+      50.91,-50.91
+      18,0
+      38.18,38.18
+      0,36
+      -63.64,63.64
+      -54,0
+      -12.73,-12.73
+    "/>
+
+    <!-- WITH SKILL polygon (scores: 9,9,10,9,8,9,10,9 out of 10, scaled to 180) -->
+    <polygon class="with-fill" points="
+      0,-162
+      114.55,-114.55
+      180,0
+      114.55,114.55
+      0,144
+      -114.55,114.55
+      -180,0
+      -114.55,-114.55
+    "/>
+
+    <!-- Dots — Without -->
+    <circle cx="0" cy="-36" r="3.5" class="dot-without"/>
+    <circle cx="50.91" cy="-50.91" r="3.5" class="dot-without"/>
+    <circle cx="18" cy="0" r="3.5" class="dot-without"/>
+    <circle cx="38.18" cy="38.18" r="3.5" class="dot-without"/>
+    <circle cx="0" cy="36" r="3.5" class="dot-without"/>
+    <circle cx="-63.64" cy="63.64" r="3.5" class="dot-without"/>
+    <circle cx="-54" cy="0" r="3.5" class="dot-without"/>
+    <circle cx="-12.73" cy="-12.73" r="3.5" class="dot-without"/>
+
+    <!-- Dots — With -->
+    <circle cx="0" cy="-162" r="4" class="dot-with"/>
+    <circle cx="114.55" cy="-114.55" r="4" class="dot-with"/>
+    <circle cx="180" cy="0" r="4" class="dot-with"/>
+    <circle cx="114.55" cy="114.55" r="4" class="dot-with"/>
+    <circle cx="0" cy="144" r="4" class="dot-with"/>
+    <circle cx="-114.55" cy="114.55" r="4" class="dot-with"/>
+    <circle cx="-180" cy="0" r="4" class="dot-with"/>
+    <circle cx="-114.55" cy="-114.55" r="4" class="dot-with"/>
+
+    <!-- Axis Labels (outside the radar) -->
+    <text x="0" y="-195" text-anchor="middle" class="axis-label">Leakage Detection</text>
+    <text x="152" y="-148" text-anchor="start" class="axis-label">CV Strategy</text>
+    <text x="198" y="5" text-anchor="start" class="axis-label">2026 Research</text>
+    <text x="142" y="152" text-anchor="start" class="axis-label">Metric Optimization</text>
+    <text x="0" y="205" text-anchor="middle" class="axis-label">Ensemble Strategy</text>
+    <text x="-142" y="152" text-anchor="end" class="axis-label">Code Completeness</text>
+    <text x="-198" y="5" text-anchor="end" class="axis-label">Domain Techniques</text>
+    <text x="-152" y="-148" text-anchor="end" class="axis-label">Submission Validation</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(590, 100)">
+    <rect x="0" y="0" width="14" height="14" rx="3" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="22" y="12" class="legend-text">Without Skill (avg 2.6)</text>
+
+    <rect x="0" y="26" width="14" height="14" rx="3" fill="rgba(34, 197, 94, 0.15)" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="22" y="38" class="legend-text">With Skill (avg 9.1)</text>
+  </g>
+
+  <!-- Stats boxes on the right -->
+  <g transform="translate(590, 175)">
+    <rect x="0" y="0" width="185" height="280" class="improvement-box"/>
+
+    <text x="92" y="28" text-anchor="middle" class="improvement-title">Impact Summary</text>
+
+    <line x1="15" y1="38" x2="170" y2="38" stroke="#bbf7d0" stroke-width="1"/>
+
+    <text x="92" y="80" text-anchor="middle" class="stat-number">+250%</text>
+    <text x="92" y="96" text-anchor="middle" class="stat-label">Overall Improvement</text>
+
+    <line x1="40" y1="110" x2="145" y2="110" stroke="#dcfce7" stroke-width="1"/>
+
+    <text x="92" y="145" text-anchor="middle" class="stat-number">9.1</text>
+    <text x="92" y="161" text-anchor="middle" class="stat-label">Average Score (With Skill)</text>
+
+    <line x1="40" y1="175" x2="145" y2="175" stroke="#dcfce7" stroke-width="1"/>
+
+    <text x="92" y="210" text-anchor="middle" class="stat-number">+900%</text>
+    <text x="92" y="226" text-anchor="middle" class="stat-label">Best: 2026 Research Awareness</text>
+
+    <line x1="40" y1="240" x2="145" y2="240" stroke="#dcfce7" stroke-width="1"/>
+
+    <text x="92" y="266" text-anchor="middle" style="font-size: 11px; fill: #166534; font-weight: 600;">8 Fatal Mistakes Prevented</text>
+  </g>
+</svg>

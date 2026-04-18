@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "kaggle-ml Skill Configuration Schema",
+  "type": "object",
+  "properties": {
+    "skill": {
+      "type": "object",
+      "properties": {
+        "name":     { "type": "string" },
+        "version":  { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "category": {
+          "type": "string",
+          "enum": ["machine-learning", "deep-learning", "ai", "agi", "general"]
+        }
+      },
+      "required": ["name", "version"]
+    },
+    "settings": {
+      "type": "object",
+      "properties": {
+        "enabled":   { "type": "boolean", "default": true },
+        "log_level": { "type": "string", "enum": ["debug", "info", "warn", "error"] },
+        "competition": {
+          "type": "object",
+          "properties": {
+            "default_cv_folds":      { "type": "integer", "minimum": 3, "maximum": 10 },
+            "default_random_state":  { "type": "integer" },
+            "min_cot_ratio":         { "type": "number", "minimum": 0.5, "maximum": 1.0 },
+            "aimo_answer_range":     { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+            "nemotron_token_limit":  { "type": "integer" },
+            "nemotron_temperature":  { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+          }
+        }
+      }
+    }
+  },
+  "required": ["skill"]
+}
