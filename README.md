@@ -1,6 +1,6 @@
-# 🏆 kaggle-ml — Claude Skill for ML/AI Competitions
+# 🏆Claude Skill for ML/AI Competitions
 
-**An autonomous Kaggle Grandmaster-level skill for Claude that turns it into a top-1% ML competition partner.**
+**An autonomous Grandmaster-level skill for Claude that turns it into a top-1% ML competition partner.**
 
 Built with insights from 2025–2026 research (TRM, SOAR, CompressARC, Gemma 4 MoE, agentic RAG) and battle-tested across 12 competition domains.
 
