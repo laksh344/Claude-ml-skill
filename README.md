@@ -290,7 +290,7 @@ Works across **Kaggle, Zindi, DrivenData, AICrowd, HuggingFace, lablab.ai, Machi
 
 ### Option 1: Upload the `.skill` file (Recommended)
 
-1. Download [`kaggle-ml.skill`](kaggle-ml.skill) from this repo
+1. Download [`kaggle-ml.skill`](Claude-ml.skill) from this repo
 2. Go to **Claude.ai → Settings → Skills**
 3. Click **Upload .skill file**
 4. Drop in `kaggle-ml.skill`
